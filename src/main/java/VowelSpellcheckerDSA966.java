@@ -20,9 +20,10 @@ class VowelSpellcheckerDSA966 {
     }
 
     public static String[] spellchecker(String[] wordlist, String[] queries) {
-        Map<String, String> caseInsensitiveWords = new HashMap<>();
-        Map<String, String> vowelErrorsWords = new HashMap<>();
-        Set<String> exactMatch = new HashSet<>();
+        int capacity = (int) (wordlist.length / 0.75f) + 1;
+        Map<String, String> caseInsensitiveWords = new HashMap<>(capacity);
+        Map<String, String> vowelErrorsWords = new HashMap<>(capacity);
+        Set<String> exactMatch = new HashSet<>(capacity);
 
         for (String word : wordlist) {
             exactMatch.add(word);
